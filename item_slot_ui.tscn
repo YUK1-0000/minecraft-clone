@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuu1pmeycqgwv"]
+
+[ext_resource type="Texture2D" uid="uid://ds6b6t4sspr2b" path="res://icon.svg" id="1_3atwh"]
+[ext_resource type="Script" path="res://item_slot_ui.gd" id="1_i3tvq"]
+
+[node name="ItemSlotUI" type="CenterContainer"]
+custom_minimum_size = Vector2(144, 144)
+offset_right = 144.0
+offset_bottom = 144.0
+size_flags_horizontal = 0
+script = ExtResource("1_i3tvq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(72, 72)
+scale = Vector2(1.125, 1.125)
+texture = ExtResource("1_3atwh")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+
+[node name="ItemDisplay" type="Sprite2D" parent="Panel"]
