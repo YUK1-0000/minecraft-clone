@@ -1,7 +1,7 @@
 extends Control
 
-@onready var  inventory: Inventory = preload("res://test_inventory.tres")
-@onready var item_slots: Array = $NinePatchRect/GridContainer.get_children()
+@onready var inventory: Inventory = preload("res://test_inventory.tres")
+@onready var item_slots = $NinePatchRect/GridContainer.get_children() as Array[ItemSlotUI]
 
 var is_open: bool = visible
 
