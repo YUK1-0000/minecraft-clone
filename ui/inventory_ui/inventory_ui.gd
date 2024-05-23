@@ -6,15 +6,19 @@ extends Control
 var is_open: bool = visible
 
 func _ready() -> void:
-	update_item_slots()
+	inventory.ui_update.connect(update)
+	update()
 
-func update_item_slots() -> void:
-	for i: int in range(min(inventory.items.size(), item_slots.size())):
-		item_slots[i].update(inventory.items[i])
+func update() -> void:
+	print("Inventory UI update")
+	for i: int in range(min(inventory.slots.size(), item_slots.size())):
+		item_slots[i].update(inventory.slots[i])
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("e"):
 		close() if is_open else open()
+	if Input.is_action_just_pressed("q"):
+		inventory.insert(preload("res://test_item.tres"), 1)
 
 func open() -> void:
 	visible = true
