@@ -18,12 +18,12 @@ func insert(collected_item: Item, collected_amount: int) -> void:
 
 func get_slots_of(item: Item) -> Array[ItemSlot]:
 	return slots.filter(
-		func(slot):
+		func(slot: ItemSlot) -> bool:
 			return slot.item == item
 	)
 
 func get_not_full_slots_of(item: Item) -> Array[ItemSlot]:
-	return slots.filter(
-		func(slot: ItemSlot):
-			return slot.item == item and slot.amount != item.max_amount
+	return get_slots_of(item).filter(
+		func(slot: ItemSlot) -> bool:
+			return slot.amount != item.max_amount
 	)
